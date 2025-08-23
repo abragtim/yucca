@@ -104,6 +104,8 @@ class BaseLightningModule(L.LightningModule):
         logging.info(f"Loading Model: {self.model.__class__.__name__} with kwargs: {self.model_kwargs}")
 
     def compute_metrics(self, metrics, output, target, ignore_index: int = 0):
+        print(f"{output.min()} - {output.max()}")
+        print(f"{target.min()} - {target.max()}")
         metrics = metrics(output, target)
         tmp = {}
         to_drop = []
