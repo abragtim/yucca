@@ -11,8 +11,6 @@ class CE(nn.CrossEntropyLoss):
         if len(target.shape) == len(input.shape):
             assert target.shape[1] == 1
             target = target[:, 0]
-        print(f"{input.min()} - {input.max()}")
-        print(f"{target.min()} - {target.max()}")
         return super().forward(input, target.long())
 
 
